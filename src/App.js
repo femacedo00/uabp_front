@@ -1,12 +1,9 @@
 import './App.css';
-import FetchData from './FetchData';
 
 function App() {
-  
-
   return (
     <div className="App">
-        <FetchData/>
+        <h1>App</h1>
     </div>
   );
 }
