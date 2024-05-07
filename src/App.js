@@ -1,11 +1,12 @@
 import './App.css';
+import LoginScreen from './screens/Login.js';
 
 function App() {
   return (
     <div className="App">
-        <h1>App</h1>
+    <LoginScreen />
     </div>
   );
 }
 
-export default App;
+export default App

@@ -1,34 +1,69 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+// import App from './App';
+import App2 from './App_router.js'
 import reportWebVitals from './reportWebVitals';
 
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom';
+import ErrorScreen from './screens/ErrorScreen.js';
 
-import Home from './Home.js';
-import Sobre from './Sobre.js';
-import Comprar from './Comprar.js';
+import Home from './screens/Home.js';
+import Contact from './screens/Contact.js';
+
+import ItemScreen from './screens/ItemScreen.js';
+import Item from './screens/Item.js';
+
+import CadastrarScreen from './screens/CadastrarScreen.js';
+import Login from './screens/Login.js';
+import Logout from './screens/Logout.js';
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: 'Sobre',
-    element: <Sobre />
+    {
+        path: "/",
+        element: <App2 />,
+        errorElement: <ErrorScreen/>,
+        children: [
+          {
+              path: "/",
+              element: <Home />
+            },
+            {
+              path: "contact",
+              element: <Contact />
+            },
+            {
+              path: "itens",
+              element: <ItemScreen />
+            },              
+            {
+              path: "/item/:id",
+              element: <Item />
+            },
+            {
+              path: "/login",
+              element: <Login />
+            },              
+            {
+              path: "/cadastrar",
+              element: <CadastrarScreen />
+            },
+            {
+              path: "/logout",
+              element: <Logout />
+            },                              
+            {
+              path:"oldpage",
+              element: <Navigate to="/" />
+            }
 
-  },
-  {
-    path: 'Comprar',
-    element: <Comprar />
-
-  }
+        ]
+    }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+    <RouterProvider router={router}/>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import DbAPI from './DbAPI';
 import axios from 'axios';
 
-const FetchData = ({accessApi, paramsApi}) => {
+const DbAPI = ({tokenBearer, typeAccess, params}) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-
+    const DbAPI = async () => {
       try {
-        const response = await axios.post('http://localhost:8080/v1/auth/login', {
-            login: "diogo.p",
-            password: "12345"
+        const response = await axios.post(typeAccess, {
+            params,
+            headers: {
+              Authorization: `Bearer ${tokenBearer}`
+            },
+            responseType: "json"
         });
-        setData(response.data.token);
+        setData(response.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -23,7 +24,7 @@ const FetchData = ({accessApi, paramsApi}) => {
       }
     };
 
-    fetchData();
+    DbAPI();
   }, []);
 
   if (loading) return <div>Loading...</div>;
@@ -31,9 +32,9 @@ const FetchData = ({accessApi, paramsApi}) => {
 
   return (
     <div>
-      <DbAPI tokenBearer={data} typeAccess={accessApi} params={paramsApi}/>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 };
 
-export default FetchData;
+export default DbAPI;
