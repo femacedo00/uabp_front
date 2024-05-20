@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMuzhvaiU55_csjTvFjzEC_gTq8x18y5Ty_Q&usqp=CAU'); /* Substitua 'sua-imagem.jpg' pela URL da sua imagem */
+  background-size: cover;
+  transition: transform .75s cubic-bezier(.29,-0.25,1,1.61);
+}
+
+.box.hovered {
+  transform: translateX(100%) rotate(360deg); 
+}
+
+.rainbow-box {
+  width: 400px;
+  height: 100px;
+  background: linear-gradient(to bottom, #ffffff, #000000);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 30px;
+  text-align: center;
+  line-height: 200px;
+}
