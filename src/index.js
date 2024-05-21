@@ -17,6 +17,7 @@ import Item from './screens/Item.js';
 import CadastrarScreen from './screens/CadastrarScreen.js';
 import Login from './screens/Login.js';
 import Logout from './screens/Logout.js';
+import AddItems from './screens/AddItem.js';
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
               path: "itens",
               element: <ItemScreen />
+            }, 
+            {
+              path: "additem",
+              element: <AddItems />
             },              
             {
               path: "/item/:id",

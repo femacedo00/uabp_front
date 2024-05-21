@@ -12,8 +12,8 @@ const FetchData = ({accessApi, paramsApi}) => {
 
       try {
         const response = await axios.post('http://localhost:8080/v1/auth/login', {
-            login: "diogo.p",
-            password: "12345"
+            login: "felipe.oliveira@unesp.br",
+            password: "123456"
         });
         setData(response.data.token);
       } catch (error) {
