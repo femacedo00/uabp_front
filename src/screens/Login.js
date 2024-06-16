@@ -1,48 +1,34 @@
-import React, { useState } from "react";
-import FetchData from "../FetchData";
+import React, { useState, useEffect } from 'react';
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
+  const login = props.tipo;
+  const buttonName = login === true ? "Acessar" : "Registrar";
+
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [callAPI, setCallAPI] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log(login);
+    };
+
+    if(callAPI) fetchData();
+  }, [callAPI, login]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const request_body = {
-      "login": email,
-      "password": password
-    }
-
-    return <FetchData accessAPI={"http://localhost:8080/v1/auth/login"} paramsApi={request_body}/>
+    setCallAPI(callAPI => callAPI + 1);
   };
 
   return (
     <div>
-      <h1>Login</h1>
-      {errorMessage && <p>{errorMessage}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Senha:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
+      <form className='UserSubmit' onSubmit={handleSubmit}>
+        {login === true ? null : <input type="text" placeholder="Nome" id="name" value={name} onChange={(e) => setName(e.target.value)} required/>}
+        <input type="email" placeholder="E-mail" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+        <input type="password" placeholder="Senha" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+        <button type="submit">{buttonName}</button>
       </form>
     </div>
   );

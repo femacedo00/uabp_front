@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import App from './App';
-import App2 from './App_router.js'
+import Header from './App_router.js'
 import reportWebVitals from './reportWebVitals';
 
 import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom';
@@ -22,7 +23,7 @@ import AddItems from './screens/AddItem.js';
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App2 />,
+        element: <Header />,
         errorElement: <ErrorScreen/>,
         children: [
           {

@@ -1,30 +1,14 @@
 import React, { useState } from 'react';
-import '../App.css';
+import '../styles/Home.css';
 
 export default function LoginScreen() {
 
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   return (
-
-    <div className="container">
-      <h1>Home</h1>
-      <div className="rainbow-box"></div>
-      <div
-        className={`box ${isHovered ? 'hovered' : ''}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        Pedro
+    <div className="Home">
+      <div className="Conteudo">
+        <h1>Escolha o supermercado <br></br> ideal antes de sair de <br></br> casa!</h1>
+        <button>Criar Carrinho</button>
       </div>
-  </div>
+    </div>
   );
 }
