@@ -10,13 +10,9 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ErrorScreen from './screens/ErrorScreen.js';
 
 import Home from './screens/Home.js';
-import Contact from './screens/Contact.js';
-
-import ItemScreen from './screens/ItemScreen.js';
 
 import Login from './screens/Login.js';
 import Logout from './screens/Logout.js';
-import AddItems from './screens/AddItem.js';
 
 const router = createBrowserRouter([
     {
@@ -27,18 +23,6 @@ const router = createBrowserRouter([
           {
               path: "/",
               element: <Home />
-            },
-            {
-              path: "contact",
-              element: <Contact />
-            },
-            {
-              path: "itens",
-              element: <ItemScreen />
-            }, 
-            {
-              path: "additem",
-              element: <AddItems />
             },
             {
               path: "/login",
