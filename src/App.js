@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">    
       <p> Foi renderizado: {count} </p>
-      <button onClick={() => setCount((count) => count + 1)}>Contar</button>
+      <button onClick={() => setCount((count) => count + 1)}>Contar</button>     
 
     </div>
   );

@@ -6,16 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './App_router.js'
 import reportWebVitals from './reportWebVitals';
 
-import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ErrorScreen from './screens/ErrorScreen.js';
 
 import Home from './screens/Home.js';
 import Contact from './screens/Contact.js';
 
 import ItemScreen from './screens/ItemScreen.js';
-import Item from './screens/Item.js';
 
-import CadastrarScreen from './screens/CadastrarScreen.js';
 import Login from './screens/Login.js';
 import Logout from './screens/Logout.js';
 import AddItems from './screens/AddItem.js';
@@ -41,27 +39,15 @@ const router = createBrowserRouter([
             {
               path: "additem",
               element: <AddItems />
-            },              
-            {
-              path: "/item/:id",
-              element: <Item />
             },
             {
               path: "/login",
               element: <Login />
-            },              
-            {
-              path: "/cadastrar",
-              element: <CadastrarScreen />
             },
             {
               path: "/logout",
               element: <Logout />
-            },                              
-            {
-              path:"oldpage",
-              element: <Navigate to="/" />
-            }
+            },
 
         ]
     }
