@@ -10,6 +10,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ErrorScreen from './screens/ErrorScreen.js';
 
 import Home from './screens/Home.js';
+import Comparar from './screens/Comparar.js';
 
 import Login from './screens/Login.js';
 import Logout from './screens/Logout.js';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
               path: "/login",
               element: <Login />
+            },
+            {
+              path: "/comparar",
+              element: <Comparar />
             },
             {
               path: "/logout",

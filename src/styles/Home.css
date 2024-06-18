@@ -1,9 +1,9 @@
-body{
+body:has(.Home){
     overflow: hidden;
 }
 
 .Home{
-    background-image: url("/src/img/background.svg");
+    background-image: url("/public/img/background.svg");
     height: 100vh;
 }
 
@@ -29,7 +29,7 @@ body{
 
 @media (max-width: 800px) {
     .Home{
-        background-image: url("/src/img/background_mobile.png");
+        background-image: url("/public/img/background_mobile.png");
     }
 
     .Conteudo{

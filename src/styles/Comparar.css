@@ -1,0 +1,92 @@
+.Comparar{
+    padding-bottom: 2rem;
+    margin: 1.5rem;
+    background-color: #fff;
+}
+
+.Comparar h2{
+    padding: 1rem;
+    text-align: start;
+}
+
+.Comparar .list-group button{
+    color: #6E6E6E;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #6E6E6E;
+    margin: 1rem !important;
+}
+
+.Comparar .list-group button.active{
+    color: #000;
+    border-bottom: 1px solid #000;
+    background-color: transparent;
+}
+
+.ListaComparatrivo{
+    display: flex;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.ListaComparatrivo img.Mercado{
+    width: 8rem;
+}
+
+.ListaComparatrivo img.Item{
+    width: 4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.InfoComparativo{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    align-content: center;
+    border-bottom: 1px solid #000;
+}
+
+.InfoComparativo div{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.InfoComparativo h3{
+    font-size: 1.5em;
+}
+
+.InfoComparativo p{
+    font-size: 1em;
+    margin: 0;
+    color: #afafaf;
+}
+
+.ValorComparativo {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+
+.ValorComparativo span{
+    margin-right: 2rem;
+}
+
+.ValorComparativo img{
+    margin-right: 0.5rem;
+}
+
+.ValorComparativo h4{
+    background-color: #424242;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.ValorComparativo p{
+    margin: 0;
+    margin-right: 2rem;
+}
