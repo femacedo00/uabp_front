@@ -1,6 +1,6 @@
 body:has(.Home){
     overflow: hidden;
-}
+} */
 
 .Home{
     background-image: url("/public/img/background.svg");
