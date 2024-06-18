@@ -30,9 +30,9 @@ export default function LoginScreen({tipo: login, setUser, handleClose}) {
       return;
     }
 
-    localStorage.setItem("token", data);
-    localStorage.setItem("user", email);
-    setUser(email);
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", data.name);
+    setUser(data.name);
     handleClose();
     navigate('/listing')
   };
