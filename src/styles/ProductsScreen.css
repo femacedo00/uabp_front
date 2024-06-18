@@ -55,8 +55,9 @@
     padding-top: 10px;
     border-radius: 8px;
     align-content: center;
+    padding-bottom: 10px;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .carousel-item img {
