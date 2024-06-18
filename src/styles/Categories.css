@@ -1,0 +1,39 @@
+.categoria-1 {
+    background-color: #FF9898;
+}
+
+.categoria-2 {
+    background-color: #FEDAB9;
+}
+
+.categoria-3 {
+    background-color: #BFB9FE;
+}
+
+.categoria-4 {
+    background-color: #B9FEF6;
+}
+
+.categoria-5 {
+    background-color: #D7FEB9;
+}
+
+.categoria-6 {
+    background-color: #FEE2B9;
+}
+
+.categoria-7 {
+    background-color: #ECB9FE;
+}
+
+.categoria-8 {
+    background-color: #FEBB9F;
+}
+
+.categoria-9 {
+    background-color: #FFB198;
+}
+
+.not-selected {
+    opacity: 0.2;
+}
