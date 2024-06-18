@@ -14,14 +14,14 @@ export default function ProductsListing({ selectedCategories }) {
   const [totalPages, setTotalPages] = useState(1);
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(true);
-  const { itemsList, addToList } = useContext(CartContext);
+  const { addToList } = useContext(CartContext);
   const itemsPerPage = 9;
   const pagesToShow = 3;
 
   const navigate = useNavigate();
 
-  console.log(itemsList);
-  console.log(stars);
+  console.log(cartItems);
+
   useEffect(() => {
     if (items && items.length) {
       setStars(Array(items.length).fill(false));
@@ -70,7 +70,7 @@ export default function ProductsListing({ selectedCategories }) {
     setShowCart(prevShowCart => !prevShowCart);
   };
 
-  const updateCartItemQuantity = (item, amount) => {
+  const updateCartItemQuantity = (item, starState, amount) => {
     const updatedCartItems = [...cartItems];
     const cartItemIndex = updatedCartItems.findIndex(
       cartItem => cartItem.upc_a === item.upc_a
@@ -80,7 +80,7 @@ export default function ProductsListing({ selectedCategories }) {
       updatedCartItems[cartItemIndex] = {
         ...updatedCartItems[cartItemIndex],
         quantity: updatedCartItems[cartItemIndex].quantity + amount,
-        star: stars[(currentPage - 1) * itemsPerPage + cartItemIndex]
+        star: starState
       };
 
       if (updatedCartItems[cartItemIndex].quantity <= 0) {
@@ -92,16 +92,15 @@ export default function ProductsListing({ selectedCategories }) {
       if (amount > 0) {
         setCartItems(prevCartItems => [
           ...prevCartItems,
-          { ...item, quantity: amount, star: stars[(currentPage - 1) * itemsPerPage + cartItems.length] }
+          { ...item, quantity: amount, star: starState }
         ]);
       }
     }
-    addToList(cartItems);
   };
 
   const handleCartFinish = (e) => {
     e.preventDefault();
-    
+    addToList(cartItems);
     navigate("/");
   }
 
@@ -109,6 +108,16 @@ export default function ProductsListing({ selectedCategories }) {
     setStars((prevStars) => {
       const newStars = [...prevStars];
       newStars[index] = !newStars[index];
+
+      const itemIndex = (currentPage - 1) * itemsPerPage + index;
+      const item = filteredItems[itemIndex];
+      const cartItemIndex = cartItems.findIndex(cartItem => cartItem.upc_a === item.upc_a);
+      if (cartItemIndex !== -1) {
+        const updatedCartItems = [...cartItems];
+        updatedCartItems[cartItemIndex].star = newStars[index];
+        setCartItems(updatedCartItems);
+      }
+
       return newStars;
     });
   };
@@ -135,8 +144,8 @@ export default function ProductsListing({ selectedCategories }) {
                   <span>{cartItems.find(cartItem => cartItem.upc_a === item.upc_a)?.quantity || 0}</span>
                 </div>
                 <div className="item-buttons">
-                  <button className="arrow-simple up" onClick={() => updateCartItemQuantity(item, 1)}></button>
-                  <button className="arrow-simple down" onClick={() => updateCartItemQuantity(item, -1)}></button>
+                  <button className="arrow-simple up" onClick={() => updateCartItemQuantity(item, stars[(currentPage - 1) * itemsPerPage + index], 1)}></button>
+                  <button className="arrow-simple down" onClick={() => updateCartItemQuantity(item, stars[(currentPage - 1) * itemsPerPage + index], -1)}></button>
                 </div>
               </div>
             </div>
@@ -170,12 +179,12 @@ export default function ProductsListing({ selectedCategories }) {
               {cartItems.map((cartItem) => (
                 <li key={cartItem.upc_a}>
                   <div className="d-flex justify-content-between">
-                    <span>{cartItem.nome}</span>
+                    <span>{cartItem.star ? '★' : '☆'}{cartItem.nome}</span>
                     <div className="d-flex align-items-center" style={{gap: "1rem"}}>
                       <span>{cartItem.quantity}</span>
                       <div className="d-flex flex-column">
-                        <button className="arrow-simple up" onClick={() => updateCartItemQuantity(cartItem, 1)}></button>
-                        <button className="arrow-simple down" onClick={() => updateCartItemQuantity(cartItem, -1)}></button>
+                        <button className="arrow-simple up" onClick={() => updateCartItemQuantity(cartItem, cartItem.star, 1)}></button>
+                        <button className="arrow-simple down" onClick={() => updateCartItemQuantity(cartItem, cartItem.star, -1)}></button>
                       </div>
                     </div>
                   </div>
