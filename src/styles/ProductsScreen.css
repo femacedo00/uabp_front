@@ -52,13 +52,18 @@
     display: flex;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
     border-radius: 8px;
     align-content: center;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .carousel-item img {
     border-radius: 8px 8px 0 0;
+    height: auto;
+    width: 65%;
+    align-self: center;
 }
 
 .carousel-item p {

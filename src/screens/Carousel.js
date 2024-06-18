@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import "../styles/ProductsScreen.css";
 
 const items = [
-  { id: 1, image: 'https://via.placeholder.com/90', categoria: 'Açougue', quant_items: 4, text: 'Itens' },
-  { id: 2, image: 'https://via.placeholder.com/90', categoria: 'Frios e laticínios', quant_items: 9, text: 'Itens' },
-  { id: 3, image: 'https://via.placeholder.com/90', categoria: 'Adega e bebidas', quant_items: 5, text: 'Itens' },
-  { id: 4, image: 'https://via.placeholder.com/90', categoria: 'Higiene e limpeza', quant_items: 6, text: 'Itens' },
-  { id: 5, image: 'https://via.placeholder.com/90', categoria: 'Hortifruti e mercearia', quant_items: 8, text: 'Itens' },
-  { id: 6, image: 'https://via.placeholder.com/90', categoria: 'Padaria', quant_items: 3, text: 'Itens' },
-  { id: 7, image: 'https://via.placeholder.com/90', categoria: 'Enlatados', quant_items: 4, text: 'Itens' },
-  { id: 8, image: 'https://via.placeholder.com/90', categoria: 'Cereais', quant_items: 10, text: 'Itens' },
-  { id: 9, image: 'https://via.placeholder.com/90', categoria: 'Rotisseria', quant_items: 1, text: 'Itens' }
+  { id: 1, categoria: 'Açougue', quant_items: 4, text: 'Itens' },
+  { id: 2, categoria: 'Frios e laticínios', quant_items: 9, text: 'Itens' },
+  { id: 3, categoria: 'Adega e bebidas', quant_items: 5, text: 'Itens' },
+  { id: 4, categoria: 'Higiene e limpeza', quant_items: 6, text: 'Itens' },
+  { id: 5, categoria: 'Hortifruti e mercearia', quant_items: 8, text: 'Itens' },
+  { id: 6, categoria: 'Padaria', quant_items: 3, text: 'Itens' },
+  { id: 7, categoria: 'Enlatados', quant_items: 4, text: 'Itens' },
+  { id: 8, categoria: 'Cereais', quant_items: 10, text: 'Itens' },
+  { id: 9, categoria: 'Rotisseria', quant_items: 1, text: 'Itens' }
 ];
 
 export default function Carousel({ onSelectCategories }) {
@@ -47,7 +47,7 @@ export default function Carousel({ onSelectCategories }) {
         <div className="carousel-track" style={{ transform: `translateX(-${startIndex * 100 / 5}%)` }}>
           {items.map((item) => (
             <div className={`carousel-item categoria-${item.id} ${!selectedCategories.includes(item.id) ? 'not-selected' : ''}`} key={item.id} onClick={() => toggleCategory(item.id)}>
-              <img src={item.image} alt={item.text} />
+              <img src={`/img/categories/${item.categoria}.png`} alt={item.text} />
               <span>{item.categoria}</span>
               <p>{item.quant_items + " " + item.text}</p>
             </div>

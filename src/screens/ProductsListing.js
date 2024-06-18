@@ -131,7 +131,7 @@ export default function ProductsListing({ selectedCategories }) {
               {stars[(currentPage - 1) * itemsPerPage + index] ? '★' : '☆'}
             </div>
             <div className="image-container">
-              <img src={'https://via.placeholder.com/100'} alt={item.nome} />
+              <img src={`/img/items/${item.nome}.png`} alt={item.nome} />
               <div className="bottom-right-text">{item.num_grand + ' ' + item.uni_grand}</div>
             </div>
             <div className="item-name">{item.nome}</div>
