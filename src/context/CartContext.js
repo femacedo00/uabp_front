@@ -6,7 +6,11 @@ export const CartProvider = ({ children }) => {
   const [itemsList, setItemsList] = useState([]);
 
   const addToList = (items) => {
-    setItemsList(items);
+    const newList = {
+      essenciais: items.filter(item => item.star),
+      comuns: items.filter(item => !item.star),
+    };
+    setItemsList(newList);
   };
 
   return (

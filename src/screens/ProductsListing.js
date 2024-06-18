@@ -20,8 +20,6 @@ export default function ProductsListing({ selectedCategories }) {
 
   const navigate = useNavigate();
 
-  console.log(cartItems);
-
   useEffect(() => {
     if (items && items.length) {
       setStars(Array(items.length).fill(false));
@@ -101,7 +99,7 @@ export default function ProductsListing({ selectedCategories }) {
   const handleCartFinish = (e) => {
     e.preventDefault();
     addToList(cartItems);
-    navigate("/");
+    navigate("/comparar");
   }
 
   const toggleStar = (index) => {

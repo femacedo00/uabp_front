@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
 import { ListGroup, Row, Col } from 'react-bootstrap';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 import ListType from './ListType.js';
 import '../styles/Comparar.css';
 
 export default function Comparar() {
     const [typeFilter, setTypeFilter] = useState("Mercado");
+    const { itemsList } = useContext(CartContext);
+
+    console.log(itemsList);
 
     const returnAPI = {
         "Mercado": [
